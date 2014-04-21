@@ -1,5 +1,5 @@
-agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routeParams', '$log', 'agbeService',
-    function ($scope, $location, $route, $routeParams, $log, agbeService) {
+agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routeParams', '$log', 'agbeService','agbeUiService',
+    function ($scope, $location, $route, $routeParams, $log, agbeService,agbeUiService) {
 
         // externalization of variables
         $scope.agbeService = agbeService;
@@ -18,12 +18,8 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
             alert('bonjour madame');
         }
 
-        $scope.showPopup = function () {
-            $("#id_agbe_fight_popup").show();
-        }
-
-        $scope.hidePopup = function() {
-            $("#id_agbe_fight_popup").hide();
+        $scope.fight = function() {
+            agbeUiService.fight('crab');
         }
 
         $scope.onCharacterClick = function () {

@@ -96,12 +96,6 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService','agbeAda
             return dataByStep;
         },
 
-
-        fight : function(characterId) {
-            var characterInfo = agbeService.getCharacterInfo(characterId);
-            alert('comabt ave '+characterId);
-        },
-
         getInventoryObjectInfo: function (objectId) {
             var obj = dataService.worldData.objectDictionnary[objectId];
             if (obj == null) {
@@ -123,8 +117,12 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService','agbeAda
             return result;
         },
 
+        getCharacterDefinition:function(characterId) {
+            return dataService.worldData.characterDictionnary[characterId];
+        },
+
         getCharacterInfo: function (characterId) {
-            var char = dataService.worldData.characterDictionnary[characterId];
+            var char = agbeService.getCharacterDefinition(characterId);
             if (char == null) {
                 alert('getCharacterInfo : Impossible to retrieve character with id ' + characterId);
             }

@@ -1,0 +1,36 @@
+<div ng-show="fightVisible" class="agbe_popup">
+    <div class="agbe_vertical_10_70_20-0">
+        <div class="agbe_center_horizontally"><h3>fight !!!</h3></div>
+    </div>
+
+    <div class="agbe_vertical_10_70_20-1">
+        <div class="agbe_left_part">
+            <div class="agbe_vertical_10_70_20-0">
+                <div class="agbe_center_horizontally">Vous</div>
+            </div>
+            <div class="agbe_vertical_10_70_20-1"><img class="agbe_img_fill_keep_ratio"
+                                                       ng-src="{{getMainCharacterImgPath()}}"/></div>
+            <div class="agbe_vertical_10_70_20-2">
+                <div class="agbe_center_horizontally">PV : {{getMainCharacterHealthPoints()}}</div>
+            </div>
+        </div>
+        <div class="agbe_right_part">
+            <div class="agbe_center_vertically">
+                <div class="agbe_vertical_10_70_20-0">
+                    <div class="agbe_center_horizontally">Ennemi</div>
+                </div>
+                <div class="agbe_vertical_10_70_20-1"><img class="agbe_img_fill_keep_ratio"
+                                                           ng-src="{{getOpponentImgPath()}}"></div>
+                <div class="agbe_vertical_10_70_20-2">
+                    <div class="agbe_center_horizontally">PV : {{getOpponentHealthPoints()}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="agbe_vertical_10_70_20-2">
+        <div class="agbe_center_horizontally">
+            <button ng-click="onClickAttack()">Attaquer</button>
+            <button ng-click="onClickRetreat()">Retraite</button>
+        </div>
+    </div>
+</div>

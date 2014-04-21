@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="agbe">
+<head>
+    <meta charset="utf-8">
+    <title>Jeu d'aventures</title>
+    <!-- libs -->
+    <script src="js/lib/jquery-2.1.0.min.js"></script>
+    <script src="js/lib/angular.js"></script>
+    <script src="js/lib/angular-route.js"></script>
+    <!-- entities -->
+    <script src="js/entities/entities.js"></script>
+    <!-- module agbe.services -->
+    <script src="js/services/services.js"></script>
+    <script src="js/services/agbeService.js"></script>
+    <script src="js/services/dataService.js"></script>
+    <script src="js/services/persistenceService.js"></script>
+    <script src="js/services/ui/agbeUiService.js"></script>
+    <!-- module agbe -->
+    <script src="js/agbe.js"></script>
+    <!-- controllers -->
+    <script src="js/controller/agbePanelCtrl.js"></script>
+    <script src="js/controller/indexCtrl.js"></script>
+    <script src="js/controller/fightCtrl.js"></script>
+    <script src="js/controller/menuDemarrageCtrl.js"></script>
+    <script src="js/controller/storyStepCtrl.js"></script>
+    <!-- directives -->
+    <script src="js/directive/header.js"></script>
+    <script src="js/directive/agbe-character.js"></script>
+    <script src="js/directive/agbe-choice.js"></script>
+    <script src="js/directive/agbe-object.js"></script>
+    <!--<script src="js/directive/agbe-popup.js"></script>-->
+    <!-- style -->
+    <link rel="stylesheet" type="text/css" href="css/agbe.css">
+    <!-- story specific code -->
+    <script src="story/js/main.js"></script>
+</head>
+<body ng-view>
+</body>
+</html>

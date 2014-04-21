@@ -6,6 +6,9 @@ agbeServices.factory('agbeAdapter', ['$log', function (log) {
 
         createStartCharacter: function () {
             var newCharacter = new agbeEntities.MainCharacter();
+            newCharacter.healthPoints = 25;
+            newCharacter.dexterity = 11;
+            newCharacter.name = "Moi";
             return newCharacter;
         },
 

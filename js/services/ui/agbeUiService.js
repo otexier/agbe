@@ -6,13 +6,10 @@ agbeServices.factory('agbeUiService', ['$log', 'agbeService',function (log, agbe
 
         currentPopupData : {},
 
-        currentOpponentId : undefined,
-
         fightCtrlScopeReference : undefined,
 
         fight : function(characterId) {
-            agbeUiService.currentOpponentId = characterId;
-            agbeUiService.fightCtrlScopeReference.init();
+            agbeUiService.fightCtrlScopeReference.init(characterId);
             agbeUiService.fightCtrlScopeReference.visible = true;
         }
 

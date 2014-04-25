@@ -4,6 +4,8 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
         // externalization of variables
         $scope.agbeService = agbeService;
 
+        $scope.urlInternet = {};
+
         $log.log("Voici le nom de l'étape : " + $routeParams.storyStep);
 
         $scope.headerHtml = function () {
@@ -20,6 +22,10 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
 
         $scope.fight = function() {
             agbeUiService.fight('crab');
+        }
+
+        $scope.onInternet = function() {
+            location.href='http://'+$scope.urlInternet.value;
         }
 
         $scope.onCharacterClick = function () {

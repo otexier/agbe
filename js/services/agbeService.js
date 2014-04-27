@@ -1,4 +1,4 @@
-agbeServices.factory('agbeService', ['$location', '$log', 'dataService','agbeAdapter','soundService', function ($location, log, dataService,agbeAdapter,soundService) {
+agbeServices.factory('agbeService', ['$location', '$log', 'dataService','agbeAdapter', function ($location, log, dataService,agbeAdapter) {
 
     var agbeService = {
 
@@ -10,7 +10,6 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService','agbeAda
         init: function () {
             log.log("agbeService.init()");
             dataService.worldData = agbeAdapter.createStartWorld();
-            soundService.init();
         },
 
         go: function (newLocation) {

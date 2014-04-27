@@ -1,5 +1,5 @@
-agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routeParams', '$log', 'agbeService','agbeUiService',
-    function ($scope, $location, $route, $routeParams, $log, agbeService,agbeUiService) {
+agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routeParams', '$log', 'agbeService','agbeUiService','soundService',
+    function ($scope, $location, $route, $routeParams, $log, agbeService,agbeUiService,soundService) {
 
         // externalization of variables
         $scope.agbeService = agbeService;
@@ -24,8 +24,8 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
             agbeUiService.fight('crab');
         }
 
-        $scope.onInternet = function() {
-            location.href='http://'+$scope.urlInternet.value;
+        $scope.onSound = function() {
+            soundService.play('sword');
         }
 
         $scope.onCharacterClick = function () {

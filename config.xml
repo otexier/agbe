@@ -18,9 +18,7 @@
     <gap:platform name="android" />
 
 
-    <feature name="Media">
-        <param name="android-package" value="org.apache.cordova.media.AudioHandler" />
-    </feature>
+    <gap:plugin name="org.apache.cordova.media" version="0.2.8" />
 
 
     <icon src="img/icon.png" />

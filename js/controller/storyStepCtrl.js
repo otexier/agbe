@@ -24,21 +24,16 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
             agbeUiService.fight('crab');
         }
 
-        $scope.onSonCreate = function() {
-            var video = document.createElement('video');
-            video.id = 'videoPo';
-            video.src = './media/sword.ogg';
-            video.play();
-
+        $scope.onPgMediaPlay = function() {
+            var snd = new Media('./media/sword.ogg');
+            snd.play();
         }
 
-        $scope.onSonPlay = function() {
-            document.getElementById('videoPo').play();
+        $scope.onPgMediaPlay2 = function() {
+            var snd = new Media('/android_asset/www/media/sword.ogg');
+            snd.play();
         }
 
-        $scope.onSonDelete = function () {
-            document.removeChild(document.getElementById('videoPo'));
-        }
         // Cordova is ready
         //
         $scope.onDeviceReady = function() {

@@ -1,5 +1,5 @@
-agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routeParams', '$log', 'agbeService','agbeUiService',
-    function ($scope, $location, $route, $routeParams, $log, agbeService,agbeUiService) {
+agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routeParams', '$log', 'agbeService','agbeUiService','soundService',
+    function ($scope, $location, $route, $routeParams, $log, agbeService,agbeUiService,soundService) {
 
         // externalization of variables
         $scope.agbeService = agbeService;
@@ -24,78 +24,17 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
             agbeUiService.fight('crab');
         }
 
-        $scope.getPhoneGapPath = function() {
-
-            var path = window.location.pathname;
-            path = path.substr( path, path.length - 10 );
-            return 'file://' + path;
-
-        };
-
-        $scope.onPgMediaPlay = function() {
-            var snd = new Media('/android_asset/www/media/gun.wav');
-            snd.play();
-        }
-
-        $scope.onPgMediaPlay2 = function() {
-            var snd = new Media($scope.getPhoneGapPath()+'/media/gun.wav');
-            snd.play();
-        }
-
-        $scope.onPgMediaPlay3 = function() {
-            var snd = new Media($scope.getPhoneGapPath()+'media/gun.mp3');
-            snd.play();
-        }
-
-        $scope.onPgMediaPlay4 = function() {
-            var snd = new Media($scope.getPhoneGapPath()+'/media/gun.mp3');
-            snd.play();
-        }
-
         // Cordova is ready
         //
         $scope.onDeviceReady = function() {
-            alert('c est prêt');
         }
 
         document.addEventListener("deviceready", $scope.onDeviceReady, false);
 
 
-        // Audio player
-        //
-        $scope.my_media = null;
-        $scope.mediaTimer = null;
-
-        // Play audio
-        //
-        $scope.playAudio = function(src) {
-            if ($scope.my_media == null) {
-                // Create Media object from src
-                $scope.my_media = new Media(src, onSuccess, onError);
-            } // else play current audio
-            // Play audio
-            $scope.my_media.play();
-
-            // Update my_media position every second
-            if ($scope.mediaTimer == null) {
-                $scope.mediaTimer = setInterval(function() {
-                    // get my_media position
-                    $scope.my_media.getCurrentPosition(
-                        // success callback
-                        function(position) {
-                        },
-                        // error callback
-                        function(e) {
-                            alert("Error getting pos=" + e);
-                        }
-                    );
-                }, 1000);
-            }
-        }
-
 
         $scope.onSound = function() {
-            $scope.playAudio('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3');
+            soundService.play('sword');
         }
 
         $scope.onCharacterClick = function () {

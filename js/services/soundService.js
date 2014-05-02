@@ -4,24 +4,15 @@ agbeServices.factory('soundService', ['$log',function ($log) {
 
         init : function() {
             $log.log("soundService.init");
-            if (!createjs.Sound.initializeDefaultPlugins()) {
-                alert("soundService : impossible to initialize sound system");
-                return;
-            }
-            var audioPath = "media/";
-            var manifest = [
-                {id:"sword", src:"sword.ogg"}
-            ];
-
-            createjs.Sound.alternateExtensions = ["mp3"];
-            createjs.Sound.addEventListener("fileload", function(event){
-                $log.log("soundService : sound "+event.src+" loaded.");
-            });
-            createjs.Sound.registerManifest(manifest, audioPath);
         },
 
-        play : function(id) {
-            createjs.Sound.play(id);
+        play : function(name) {
+            var auOgg = new Audio('./media/'+name+".ogg");
+            auOgg.load();
+            auOgg.play();
+            var auMp3 = new Audio('./media/'+name+".mp3");
+            auMp3.load();
+            auMp3.play();
         }
 
     }

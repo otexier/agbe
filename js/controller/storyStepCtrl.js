@@ -24,13 +24,31 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
             agbeUiService.fight('crab');
         }
 
+        $scope.getPhoneGapPath = function() {
+
+            var path = window.location.pathname;
+            path = path.substr( path, path.length - 10 );
+            return 'file://' + path;
+
+        };
+
         $scope.onPgMediaPlay = function() {
-            var snd = new Media('./media/sword.ogg');
+            var snd = new Media(getPhoneGapPath()+'media/gun.wav');
             snd.play();
         }
 
-        $scope.onPgMediaPlay2 = function() {
-            var snd = new Media('/android_asset/www/media/sword.ogg');
+        $scope.onPgMediaPlay = function() {
+            var snd = new Media(getPhoneGapPath()+'/media/gun.wav');
+            snd.play();
+        }
+
+        $scope.onPgMediaPlay3 = function() {
+            var snd = new Media(getPhoneGapPath()+'media/gun.mp3');
+            snd.play();
+        }
+
+        $scope.onPgMediaPlay4 = function() {
+            var snd = new Media(getPhoneGapPath()+'/media/gun.mp3');
             snd.play();
         }
 

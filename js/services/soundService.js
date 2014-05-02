@@ -4,7 +4,7 @@ agbeServices.factory('soundService', ['$log',function ($log) {
 
         init : function() {
             $log.log("soundService.init");
-            PGLowLatencyAudio.preloadFX('gun', '/android_asset/www/media/gun.mp3');
+            PGLowLatencyAudio.preloadFX('gun', 'assets/media/gun.mp3');
         },
 
         play : function(name) {

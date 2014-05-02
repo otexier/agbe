@@ -18,7 +18,8 @@
     <gap:platform name="android" />
 
 
-    <gap:plugin name="org.apache.cordova.media" version="0.2.8" />
+    <!-- slt pour kitkat <gap:plugin name="org.apache.cordova.media" version="0.2.8" />-->
+    <gap:plugin name="com.rjfun.cordova.plugin.lowlatencyaudio" version="1.0" />
 
 
     <icon src="img/icon.png" />

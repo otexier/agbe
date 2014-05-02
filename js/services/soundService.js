@@ -4,6 +4,7 @@ agbeServices.factory('soundService', ['$log',function ($log) {
 
         init : function() {
             $log.log("soundService.init");
+            PGLowLatencyAudio.preloadFX('gun', 'assets/media/gun.mp3');
         },
 
         play : function(name) {
@@ -14,10 +15,13 @@ agbeServices.factory('soundService', ['$log',function ($log) {
             auMp3.load();
             auMp3.play();
             */
+            /*
             var dodo = new Media('/android_asset/www/media/sword.mp3', function(e) {alert('succes : '+e)}, function(e) {alert('erreur : '+e)});
             dodo.play();
             var dodo2 = new Media('/android_asset/www/media/sword.ogg', function(e) {alert('succes : '+e)}, function(e) {alert('erreur : '+e)});
             dodo2.play();
+            */
+            PGLowLatencyAudio.play('gun');
         }
 
     }

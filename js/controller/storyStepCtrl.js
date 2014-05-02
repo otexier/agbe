@@ -37,7 +37,7 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
             snd.play();
         }
 
-        $scope.onPgMediaPlay = function() {
+        $scope.onPgMediaPlay2 = function() {
             var snd = new Media(getPhoneGapPath()+'/media/gun.wav');
             snd.play();
         }

@@ -33,22 +33,22 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
         };
 
         $scope.onPgMediaPlay = function() {
-            var snd = new Media(getPhoneGapPath()+'media/gun.wav');
+            var snd = new Media($scope.getPhoneGapPath()+'media/gun.wav');
             snd.play();
         }
 
         $scope.onPgMediaPlay2 = function() {
-            var snd = new Media(getPhoneGapPath()+'/media/gun.wav');
+            var snd = new Media($scope.getPhoneGapPath()+'/media/gun.wav');
             snd.play();
         }
 
         $scope.onPgMediaPlay3 = function() {
-            var snd = new Media(getPhoneGapPath()+'media/gun.mp3');
+            var snd = new Media($scope.getPhoneGapPath()+'media/gun.mp3');
             snd.play();
         }
 
         $scope.onPgMediaPlay4 = function() {
-            var snd = new Media(getPhoneGapPath()+'/media/gun.mp3');
+            var snd = new Media($scope.getPhoneGapPath()+'/media/gun.mp3');
             snd.play();
         }
 

@@ -23,6 +23,22 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
         $scope.fight = function() {
             agbeUiService.fight('crab');
         }
+
+        $scope.onSonCreate = function() {
+            var video = document.createElement('video');
+            video.id = 'videoPo';
+            video.src = './media/sword.ogg';
+            video.play();
+
+        }
+
+        $scope.onSonPlay = function() {
+            document.getElementById('videoPo').play();
+        }
+
+        $scope.onSonDelete = function () {
+            document.removeChild(document.getElementById('videoPo'));
+        }
         // Cordova is ready
         //
         $scope.onDeviceReady = function() {

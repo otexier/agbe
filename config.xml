@@ -15,7 +15,10 @@
     <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="false" />
 
-    <plugin name="Media" value="org.apache.cordova.AudioHandler" />
+    <gap:platform name="android" />
+
+
+    <gap:plugin name="org.apache.cordova.AudioHandler" />
 
 
     <icon src="img/icon.png" />

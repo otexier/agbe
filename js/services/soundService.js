@@ -4,7 +4,9 @@ agbeServices.factory('soundService', ['$log',function ($log) {
 
         init : function() {
             $log.log("soundService.init");
-            PGLowLatencyAudio.preloadFX('gun', 'assets/media/gun.mp3');
+            var pluga = window.plugins.com.rjfun.cordova.plugin.lowlatencyaudio.LowLatencyAudio;
+            alert("Plug = "+pluga);
+            pluga.preloadFX('gun', 'media/gun.mp3');
         },
 
         play : function(name) {
@@ -21,7 +23,8 @@ agbeServices.factory('soundService', ['$log',function ($log) {
             var dodo2 = new Media('/android_asset/www/media/sword.ogg', function(e) {alert('succes : '+e)}, function(e) {alert('erreur : '+e)});
             dodo2.play();
             */
-            PGLowLatencyAudio.play('gun');
+            var pluga = window.plugins.com.rjfun.cordova.plugin.lowlatencyaudio.LowLatencyAudio;
+            pluga.play('gun');
         }
 
     }

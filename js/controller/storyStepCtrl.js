@@ -27,6 +27,7 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
         // Cordova is ready
         //
         $scope.onDeviceReady = function() {
+            alert("pg pret");
         }
 
         document.addEventListener("deviceready", $scope.onDeviceReady, false);

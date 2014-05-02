@@ -4,10 +4,6 @@ agbeServices.factory('soundService', ['$log',function ($log) {
 
         init : function() {
             $log.log("soundService.init");
-            alert('avant');
-            var pluga = window.plugins.LowLatencyAudio;
-            alert("Plug = "+pluga);
-            pluga.preloadFX('gun', 'media/gun.mp3');
         },
 
         play : function(name) {
@@ -25,6 +21,8 @@ agbeServices.factory('soundService', ['$log',function ($log) {
             dodo2.play();
             */
             var pluga = window.plugins.LowLatencyAudio;
+            alert("Plug = "+pluga);
+            pluga.preloadFX('gun', 'media/gun.mp3');
             pluga.play('gun');
         }
 

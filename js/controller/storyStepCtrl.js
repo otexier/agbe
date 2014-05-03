@@ -24,14 +24,6 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
             agbeUiService.fight('crab');
         }
 
-        // Cordova is ready
-        //
-        $scope.onDeviceReady = function() {
-            alert("pg pret");
-        }
-
-        document.addEventListener("deviceready", $scope.onDeviceReady, false);
-
         $scope.onSoundAgbe = function() {
             soundService.playAgbeSound('sword.ogg');
         }

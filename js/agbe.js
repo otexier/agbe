@@ -15,9 +15,4 @@ var agbeApp = angular.module('agbe', ['ngRoute','agbe.services']).
                 controller : 'menuDemarrageCtrl'
             }
         );
-    }).
-    run(['$log','agbeService','soundService', function (log,agbeService,soundService) {
-        log.log("Initialisation du module agbe");
-        agbeService.init();
-        soundService.init();
-    }]);
+    });

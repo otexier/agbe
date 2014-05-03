@@ -1,4 +1,4 @@
-agbeServices.factory('agbeService', ['$location', '$log', 'dataService','agbeAdapter', function ($location, log, dataService,agbeAdapter) {
+agbeServices.factory('agbeService', ['$location', '$log', 'dataService','agbeAdapter','soundService', function ($location, log, dataService,agbeAdapter,soundService) {
 
     var agbeService = {
 
@@ -185,6 +185,15 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService','agbeAda
             var objectInfo = agbeService.getObjectInfo(objectId);
             isPresent = objectInfo.nb >= 1;
             return isPresent;
+        },
+
+        onApplicationReady:function() {
+            agbeService.init();
+            var agbeSoundArray = [];
+            agbeSoundArray.push('sword.ogg');
+            var storySoundArray = [];
+            storySoundArray.push('sword.ogg');
+            soundService.init(agbeSoundArray,storySoundArray);
         }
     }
 

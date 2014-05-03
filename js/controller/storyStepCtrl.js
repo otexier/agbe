@@ -34,8 +34,16 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
 
 
 
-        $scope.onSound = function() {
-            soundService.play('sword');
+        $scope.onSoundSwordOgg = function() {
+            soundService.play('sword','ogg');
+        }
+
+        $scope.onSoundGunWav = function() {
+            soundService.play('gun','wav');
+        }
+
+        $scope.onSoundGunMp3 = function() {
+            soundService.play('gun','mp3');
         }
 
         $scope.onCharacterClick = function () {

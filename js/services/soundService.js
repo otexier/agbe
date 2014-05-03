@@ -6,7 +6,7 @@ agbeServices.factory('soundService', ['$log',function ($log) {
             $log.log("soundService.init");
         },
 
-        play : function(name) {
+        play : function(name,ext) {
             /*var auOgg = new Audio('./media/'+name+".ogg");
             auOgg.load();
             auOgg.play();
@@ -14,17 +14,15 @@ agbeServices.factory('soundService', ['$log',function ($log) {
             auMp3.load();
             auMp3.play();
             */
-            /*
-            var dodo = new Media('/android_asset/www/media/sword.mp3', function(e) {alert('succes : '+e)}, function(e) {alert('erreur : '+e)});
-            dodo.play();
-            var dodo2 = new Media('/android_asset/www/media/sword.ogg', function(e) {alert('succes : '+e)}, function(e) {alert('erreur : '+e)});
-            dodo2.play();
-            */
             var pluga = window.plugins.LowLatencyAudio;
-            alert("Plug = "+pluga);
-            pluga.preloadFX('gun', 'media/gun.mp3');
-            pluga.play('gun');
+            pluga.preloadFX(name, 'media/'+name+'.'+ext);
+            pluga.play(name);
+            //var dodo = new Media('/android_asset/www/media/sword.mp3', function(e) {}, function(e) {alert('erreur media : '+e)});
+            //dodo.play();
+            //var dodo2 = new Media('/android_asset/www/media/sword.ogg', function(e) {}, function(e) {alert('erreur media : '+e)});
+            //dodo2.play();
         }
+
 
     }
     return soundService;

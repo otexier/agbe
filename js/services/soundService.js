@@ -15,7 +15,7 @@ agbeServices.factory('soundService', ['$log',function ($log) {
                 var nameWithNoExtension = nameWithExtension.substr(0,idxLastDot);
                 alert('nameWithNoExtension : '+nameWithNoExtension+' basePath+nameWithExtension = '+basePath+nameWithExtension);
                 lla.preloadFX(nameWithNoExtension, basePath+nameWithExtension);
-                lla.play(name);
+                lla.play(nameWithNoExtension);
             }
             else {
                 var auOgg = new Audio(basePath+nameWithExtension);

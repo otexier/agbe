@@ -32,18 +32,12 @@ agbeApp.controller('storyStepCtrl', ['$scope', '$location', '$route', '$routePar
 
         document.addEventListener("deviceready", $scope.onDeviceReady, false);
 
-
-
-        $scope.onSoundSwordOgg = function() {
-            soundService.play('sword','ogg');
+        $scope.onSoundAgbe = function() {
+            soundService.playAgbeSound('sword.ogg');
         }
 
-        $scope.onSoundGunWav = function() {
-            soundService.play('gun','wav');
-        }
-
-        $scope.onSoundGunMp3 = function() {
-            soundService.play('gun','mp3');
+        $scope.onSoundStory = function() {
+            soundService.playStorySound('sword.ogg');
         }
 
         $scope.onCharacterClick = function () {

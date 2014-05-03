@@ -6,21 +6,30 @@ agbeServices.factory('soundService', ['$log',function ($log) {
             $log.log("soundService.init");
         },
 
-        play : function(name,ext) {
-            /*var auOgg = new Audio('./media/'+name+".ogg");
-            auOgg.load();
-            auOgg.play();
-            var auMp3 = new Audio('./media/'+name+".mp3");
-            auMp3.load();
-            auMp3.play();
-            */
-            var pluga = window.plugins.LowLatencyAudio;
-            pluga.preloadFX(name, 'media/'+name+'.'+ext);
-            pluga.play(name);
-            //var dodo = new Media('/android_asset/www/media/sword.mp3', function(e) {}, function(e) {alert('erreur media : '+e)});
-            //dodo.play();
-            //var dodo2 = new Media('/android_asset/www/media/sword.ogg', function(e) {}, function(e) {alert('erreur media : '+e)});
-            //dodo2.play();
+        innerPlay : function(basePath,nameWithExtension) {
+            var isPhonegap = (typeof(cordova) !== 'undefined' || typeof(phonegap) !== 'undefined');
+            if (isPhonegap) {
+                alert('is in pg');
+                var lla = window.plugins.LowLatencyAudio;
+                var idxLastDot = nameWithExtension.lastIndexOf('.');
+                var nameWithNoExtension = nameWithExtension.substr(0,idxLastDot);
+                alert('nameWithNoExtension : '+nameWithNoExtension+' basePath+nameWithExtension = '+basePath+nameWithExtension);
+                lla.preloadFX(nameWithNoExtension, basePath+nameWithExtension);
+                lla.play(name);
+            }
+            else {
+                var auOgg = new Audio(basePath+nameWithExtension);
+                auOgg.load();
+                auOgg.play();
+            }
+        },
+
+        playAgbeSound : function(nameWithExtension) {
+            soundService.innerPlay('audio/',nameWithExtension);
+        },
+
+        playStorySound : function(nameWithExtension) {
+            soundService.innerPlay('story/audio/',nameWithExtension);
         }
 
 

@@ -191,6 +191,7 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService','agbeAda
             agbeService.init();
             var agbeSoundArray = [];
             agbeSoundArray.push('sword.ogg');
+            // TODO OTX générer le tableau plutôt qu'en dur !
             var storySoundArray = [];
             storySoundArray.push('sword.ogg');
             soundService.init(agbeSoundArray,storySoundArray);

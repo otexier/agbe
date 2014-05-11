@@ -8,6 +8,7 @@ agbeApp.directive('agbeCharacter', function () {
             $scope.characterText = $attrs.characterText;
             $scope.characterId = $attrs.characterId;
             $scope.characterNb = $attrs.characterNb;
+            $scope.characterVictoryStep = $attrs.characterVictoryStep;
             if ($scope.characterNb == null) {
                 $scope.characterNb = 1;
             }
@@ -17,6 +18,14 @@ agbeApp.directive('agbeCharacter', function () {
         controller: ['$scope', '$attrs', 'agbeService','agbeUiService', function ($scope, $attrs, agbeService,agbeUiService) {
 
             $scope.agbeService = agbeService;
+
+            $scope.isSuccessActionVisible = function() {
+                return !$scope.isCharacterPresent($scope.characterId);
+            }
+
+            $scope.onClickFightWon = function() {
+                agbeService.go($scope.characterVictoryStep);
+            }
 
             $scope.isCharacterPresent = function () {
                 return agbeService.isCharacterPresent($scope.characterId);

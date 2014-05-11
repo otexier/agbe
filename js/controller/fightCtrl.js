@@ -10,6 +10,10 @@ agbeApp.controller('fightCtrl', ['$scope', '$location', '$route', '$routeParams'
 
         $scope.visible = false;
 
+        $scope.fightEnded = false;
+        $scope.fightWon= false;
+        $scope.fightLost= false;
+
         $scope.currentOpponent = undefined;
 
         $scope.currentOpponentId = undefined;
@@ -86,9 +90,14 @@ agbeApp.controller('fightCtrl', ['$scope', '$location', '$route', '$routeParams'
 
         $scope.endFightIfOpponentDead = function(message) {
             if ($scope.currentOpponentInfo.healthPoints <= 0) {
-                $scope.visible = false;
-                alert('Combat gagné');
+                $scope.fightEnded = true;
+                $scope.fightWon = true;
             }
+        }
+
+        $scope.onClickFightWon = function () {
+            agbeService.getCharacterInfo($scope.currentOpponentId).nb = agbeService.getCharacterInfo($scope.currentOpponentId).nb-1;
+            $scope.visible = false;
         }
 
         $scope.onClickAttack = function () {

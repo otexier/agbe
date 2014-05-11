@@ -11,6 +11,7 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService','agbeAda
 
         init : function() {
             log.info('agbeService.init');
+            dataService.worldData = agbeAdapter.createStartWorld();
         },
 
         forAllCharacters:function(callback) {
@@ -26,6 +27,9 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService','agbeAda
         },
 
         preloadSounds:function() {
+            // main character
+            soundService.preloadSound('story/audio/',dataService.characterData.attackSoundPath);
+            // characters sound
             agbeService.forAllCharacters(function(character) {
                 if (character.attackSoundPath != null) {
                     soundService.preloadSound('story/audio/',character.attackSoundPath);
@@ -210,7 +214,6 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService','agbeAda
 
         onApplicationReady:function() {
             log.log("agbeService.onApplicationReady");
-            dataService.worldData = agbeAdapter.createStartWorld();
             agbeService.preloadSounds();
         }
     }

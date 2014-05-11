@@ -1,5 +1,5 @@
-agbeApp.controller('fightCtrl', ['$scope', '$location', '$route', '$routeParams', '$log', 'agbeService', 'agbeUiService','dataService',
-    function ($scope, $location, $route, $routeParams, $log, agbeService, agbeUiService,dataService) {
+agbeApp.controller('fightCtrl', ['$scope', '$location', '$route', '$routeParams', '$log', 'agbeService', 'agbeUiService','dataService','soundService',
+    function ($scope, $location, $route, $routeParams, $log, agbeService, agbeUiService,dataService,soundService) {
 
 
         // record on agbeUiService
@@ -99,9 +99,11 @@ agbeApp.controller('fightCtrl', ['$scope', '$location', '$route', '$routeParams'
             }
             else {
                 if (mainCharAttack > opponentAttack) {
+                    soundService.playStorySound($scope.currentOpponent.attackSoundPath);
                     $scope.decrementMainCharHealthPoint(2);
                 }
                 else if (opponentAttack > mainCharAttack) {
+                    soundService.playStorySound(dataService.characterData.attackSoundPath);
                     $scope.decrementOpponentHealthPoint(2);
                 }
                 $scope.endGameIfDead("Vous venez d'être tué.");

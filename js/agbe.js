@@ -15,4 +15,6 @@ var agbeApp = angular.module('agbe', ['ngRoute','agbe.services']).
                 controller : 'menuDemarrageCtrl'
             }
         );
-    });
+    }).run(['agbeService',function(agbeService) {
+        agbeService.init();
+    }]);

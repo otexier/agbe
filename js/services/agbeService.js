@@ -7,9 +7,30 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService','agbeAda
         agbeGo: function (agbeLocation) {
             $location.path('/agbe/' + agbeLocation);
         },
-        init: function () {
-            log.log("agbeService.init()");
-            dataService.worldData = agbeAdapter.createStartWorld();
+
+
+        init : function() {
+            log.info('agbeService.init');
+        },
+
+        forAllCharacters:function(callback) {
+            if (typeof callback == 'function') {
+                for (var id in dataService.worldData.characterDictionnary) {
+                    var character = agbeService.getCharacterDefinition(id);
+                    callback(character);
+                }
+            }
+            else {
+                alert("given parameter "+callback+" is not a function");
+            }
+        },
+
+        preloadSounds:function() {
+            agbeService.forAllCharacters(function(character) {
+                if (character.attackSoundPath != null) {
+                    soundService.preloadSound('story/audio/',character.attackSoundPath);
+                }
+            });
         },
 
         go: function (newLocation) {
@@ -188,13 +209,9 @@ agbeServices.factory('agbeService', ['$location', '$log', 'dataService','agbeAda
         },
 
         onApplicationReady:function() {
-            agbeService.init();
-            var agbeSoundArray = [];
-            agbeSoundArray.push('sword.ogg');
-            // TODO OTX générer le tableau plutôt qu'en dur !
-            var storySoundArray = [];
-            storySoundArray.push('sword.ogg');
-            soundService.init(agbeSoundArray,storySoundArray);
+            log.log("agbeService.onApplicationReady");
+            dataService.worldData = agbeAdapter.createStartWorld();
+            agbeService.preloadSounds();
         }
     }
 

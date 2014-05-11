@@ -3,12 +3,13 @@ var agbeEntities = {
     /**
      * @name Character
      */
-    Character: function (id, name, healthPoints, dexterity, img) {
+    Character: function (id, name, healthPoints, dexterity, img,attackSoundPath) {
         this.id = id,
             this.name = name,
             this.healthPoints = healthPoints,
             this.dexterity = dexterity,
-            this.img = img
+            this.img = img,
+            this.attackSoundPath = attackSoundPath
     },
 
     CharacterInfo: function () {
